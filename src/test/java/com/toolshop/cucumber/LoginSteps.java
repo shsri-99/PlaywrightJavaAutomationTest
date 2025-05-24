@@ -1,0 +1,44 @@
+package com.toolshop.cucumber;
+
+import com.microsoft.playwright.Page;
+import com.toolshop.PageObjects.LoginObject;
+import com.toolshop.PageObjects.RegisterObject;
+import com.toolshop.fixtures.PlaywrightFactory;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+public class LoginSteps {
+    Page page = PlaywrightFactory.getPage();
+    RegisterObject registerObject = new RegisterObject(page);
+    LoginObject loginObject = new LoginObject(page);
+
+    @When("User enters {string} email address")
+    @Step("Enter {email} email address")
+    public void userEntersEmailAddress(String email) {
+        loginObject.enterEmailAddress(email);
+
+    }
+    @When("User enters {string} password")
+    @Step("Enter {password} password")
+    public void userEntersPassword(String password) {
+        loginObject.enterPassword(password);
+    }
+    @When("User submits login")
+    @Step("User submits login button")
+    public void userSubmitsLogin() {
+        loginObject.loginButton();
+    }
+
+    @Then("{string} is visible in the page")
+    @Step("{expectedMyAccountTitle} is visible in the page")
+    public void is_visible_in_the_page(String expectedMyAccountTitle) {
+    loginObject.myAccountVisible(expectedMyAccountTitle);
+    }
+
+}
