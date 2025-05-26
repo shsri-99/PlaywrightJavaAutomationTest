@@ -36,6 +36,7 @@ public class RegisterSteps {
     @Step("Navigate to homepage")
     public void userIsOnTheHomepage() {
         page.navigate("https://practicesoftwaretesting.com");
+        page.waitForLoadState();
     }
 
     @When("User navigates to the sign-in page")
