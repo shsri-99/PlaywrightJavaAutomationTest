@@ -61,3 +61,8 @@ Scenario: Login using the newly registered credentials through API
   And User enters "SuperSecure@123" password
   And User submits login
   Then "My account" is visible in the page
+
+Scenario: User selects login without adding email password gives error message
+  Given User navigates to the sign-in page
+  When User submits login
+  Then User receives "Email is required" and "Password is required" message
