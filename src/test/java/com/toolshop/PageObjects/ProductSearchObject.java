@@ -47,8 +47,6 @@ public class ProductSearchObject {
                 .stream()
                 .map(String::trim)
                 .toList();
-        System.out.println("Actual products from DOM:");
-        actualProducts.forEach(System.out::println);
 
         assertEquals(expectedProducts.size(), actualProducts.size(),
                 "Mismatch in number of products displayed.");
@@ -57,9 +55,13 @@ public class ProductSearchObject {
                     "Expected product '" + expectedProduct + "' not found in search results.");
         }
     }
+
     @Step("User selects checkbox by label text: {productName} and waits for product API response {int}")
     public void searchProductByCheckbox(String productName, int resultResp) {
+        page.waitForLoadState();
         Locator labelName = page.locator("label:has-text('" + productName + "')");
+        labelName.waitFor();
+        assertTrue(labelName.isVisible());
         Response response = page.waitForResponse(
                 res -> res.url().contains("api.practicesoftwaretesting.com/products") &&
                         res.status() == 200,
@@ -70,14 +72,18 @@ public class ProductSearchObject {
 
     @Step("User can see below products for checkbox search")
     public void verifyProductSearchCheckboxResults(List<String> expectedProductsSearchBoxResults) {
+
         List<String> actualProductSearchBoxResults = page.locator("[data-test='product-name']:visible").allInnerTexts()
                 .stream()
                 .map(String::trim)
                 .toList();
-        System.out.println("🔍 Products found after checkbox selection: " +actualProductSearchBoxResults);
-
         assertEquals(expectedProductsSearchBoxResults.size(), actualProductSearchBoxResults.size(),
                 "Mismatch in number of products displayed.");
+
+        for (String expectedProduct : expectedProductsSearchBoxResults) {
+            assertTrue(actualProductSearchBoxResults.contains(expectedProduct),
+                    "Expected product '" + expectedProduct + "' not found in search results.");
+        }
     }
 
     @Step("User adds filter {string} on the products and wait for API response {int}")
@@ -90,6 +96,7 @@ public class ProductSearchObject {
                 res -> res.url().contains("api.practicesoftwaretesting.com/products?sort=price") && res.status() == 200,
                 () -> sort.selectOption(new SelectOption().setLabel(sortMethod))
         );
+        assertEquals(response.status(),expResp);
     }
     @Step("User  can view {int} products as a result")
     public void verifyExpectedProductAfterFilter(int expectedProductsCount){

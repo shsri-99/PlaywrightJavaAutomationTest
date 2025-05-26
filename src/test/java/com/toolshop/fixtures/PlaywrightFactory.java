@@ -15,7 +15,7 @@ public class PlaywrightFactory {
             playwright = Playwright.create();
             browser = playwright.chromium().launch(
                     new BrowserType.LaunchOptions()
-                            .setHeadless(true)
+                            .setHeadless(false)
                             .setArgs(Arrays.asList(new String[]{"--no-sandbox", "--disable-extensions", "--disable-gpu"}))
             );
             context = browser.newContext(

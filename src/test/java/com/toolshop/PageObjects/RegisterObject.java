@@ -3,6 +3,7 @@ package com.toolshop.PageObjects;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Response;
+import com.microsoft.playwright.options.LoadState;
 import io.qameta.allure.Step;
 
 import java.util.List;
