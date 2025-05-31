@@ -40,4 +40,29 @@ public class CartObject {
         String actualText = actualMessage.innerText().trim();
         assertEquals(message.trim(), actualText);
     }
+
+    @Step("Validate cart quantity increments")
+    public  void basketCount(int quantity){
+        Locator cartCount =  page.locator("#lblCartCount");
+        cartCount.waitFor();
+        page.waitForTimeout(4000);
+        int count = Integer.parseInt(cartCount.textContent());
+        System.out.println("Count the items in cart: "+count);
+    }
+
+    @Step("Navigate to checkout page")
+    public void navigateCheckoutPage(){
+        page.navigate("https://practicesoftwaretesting.com/checkout");
+    }
+    @Step("See product details on cart page")
+    public void showProductDetailsAtCarPage(List<String> productDetails){
+        Locator row = page.locator("tr", new Page.LocatorOptions().setHasText("Combination Pliers"));
+        String actualTitle = row.locator("span[data-test='product-title']").textContent().trim();
+        String actualQuantity = row.locator("input[data-test='product-quantity']").inputValue().trim();
+        String actualPrice = row.locator("span[data-test='product-price']").textContent().trim();
+        assertEquals(productDetails.get(0).trim(), actualTitle.replace("\u00A0", " ").trim(), "Product title mismatch");
+        assertEquals(productDetails.get(1).trim(), actualQuantity, "Quantity mismatch");
+        assertEquals(productDetails.get(2).trim(), actualPrice, "Product price mismatch");
+
+    }
 }

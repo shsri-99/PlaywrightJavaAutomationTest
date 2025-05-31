@@ -2,9 +2,12 @@ package com.toolshop.cucumber;
 import com.microsoft.playwright.Page;
 import com.toolshop.PageObjects.CartObject;
 import com.toolshop.fixtures.PlaywrightFactory;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
+
+import java.util.List;
 
 public class cartSteps {
     Page page = PlaywrightFactory.getPage();
@@ -25,5 +28,26 @@ public class cartSteps {
     public void messageIsDisplayedOnTheScreen(String message) {
     cart.verifyAddToCartMessage(message);
     }
+
+    @And("basket count is incremented by {int}")
+    @Step("Validate cart quantity increments")
+    public void basketCountIsIncrementedBy(int quantity) {
+        cart.basketCount(quantity);
+    }
+
+    @When("User navigates to the checkout page")
+    @Step("Navigate to checkout page")
+    public void userNavigatesToTheCheckoutPage() {
+        cart.navigateCheckoutPage();
+    }
+
+
+    @Then("User can see below product details")
+    public void userCanSeeBelowProductDetails(io.cucumber.datatable.DataTable dataTable) {
+        List<String> productDetails = dataTable.asList(String.class);
+        cart.showProductDetailsAtCarPage(productDetails);
+    }
+
+
 
 }
