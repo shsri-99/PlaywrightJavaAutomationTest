@@ -18,8 +18,8 @@ Feature: Register and Login
     And I set the request body to:
     """
     {
-      "first_name": "Johny",
-      "last_name": "Does",
+      "first_name": "Johnny",
+      "last_name": "Doens",
       "address": {
         "street": "Street 1",
         "city": "City",
@@ -30,7 +30,7 @@ Feature: Register and Login
       "phone": "0987352332",
       "dob": "1998-01-01",
       "password": "SuperSecure@123",
-      "email": "Johny@Does.example"
+      "email": "Johnny@Doens.example"
     }
     """
     When I send a POST request
@@ -38,11 +38,11 @@ Feature: Register and Login
     And the response body should contain:
     """
     {
-  "first_name": "Johny",
-  "last_name": "Does",
+  "first_name": "Johnny",
+  "last_name": "Doens",
   "phone": "0987352332",
   "dob": "1998-01-01",
-  "email": "Johny@Does.example",
+  "email": "Johnny@Doens.example",
   "id": "01jw10et38ps943kpr3j5p1ff5",
   "created_at": "2025-05-24 11:22:09",
   "address": {
@@ -61,3 +61,9 @@ Scenario: Login using the newly registered credentials through API
   And User enters "SuperSecure@123" password
   And User submits login
   Then "My account" is visible in the page
+
+
+Scenario: User selects login without adding email password gives error message
+  Given User navigates to the sign-in page
+  When User submits login
+  Then User receives "Email is required" and "Password is required" message

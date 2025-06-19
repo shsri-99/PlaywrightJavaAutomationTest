@@ -2,6 +2,11 @@ package com.toolshop.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+<<<<<<< HEAD:src/test/java/com/toolshop/pages/RegisterObject.java
+=======
+import com.microsoft.playwright.Response;
+import com.microsoft.playwright.options.LoadState;
+>>>>>>> 5eaa94a229703441d805fb8ee4f56962d982a646:src/test/java/com/toolshop/PageObjects/RegisterObject.java
 import io.qameta.allure.Step;
 
 import java.util.List;

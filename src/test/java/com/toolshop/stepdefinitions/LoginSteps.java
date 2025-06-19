@@ -40,4 +40,12 @@ public class LoginSteps {
     loginObject.myAccountVisible(expectedMyAccountTitle);
     }
 
+    @Then("User receives {string} and {string} message")
+    @Step("User receives alert message during login without entering email and password")
+    public void userReceivesAlertMessageInLogin(String emailError, String passwordError) {
+        registerObject.navSignin();
+       loginObject.showLoginAlertMessage(emailError,passwordError);
+    }
+
+
 }

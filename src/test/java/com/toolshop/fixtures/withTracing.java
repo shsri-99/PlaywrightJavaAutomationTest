@@ -29,7 +29,7 @@ public class withTracing {
         scenario.attach(screenshot, "image/png", "Final Screenshot");
 
         // Tracing (like withTracing)
-        String traceName = scenario.getName().replace(" ", "_").toLowerCase();
+        String traceName = scenario.getName().replaceAll("[^a-zA-Z0-9-_\\.]", "_").toLowerCase();
         context.tracing().stop(new Tracing.StopOptions()
                 .setPath(Paths.get("target/traces/trace-" + traceName + ".zip")));
     }
