@@ -1,4 +1,4 @@
-package com.toolshop.fixtures;
+package com.toolshop.utils;
 
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.junit.Options;

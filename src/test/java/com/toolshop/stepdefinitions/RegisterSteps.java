@@ -1,22 +1,15 @@
-package com.toolshop.cucumber;
+package com.toolshop.stepdefinitions;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import com.google.gson.JsonParser;
 import com.microsoft.playwright.Page;
-import com.toolshop.PageObjects.RegisterAPI;
-import com.toolshop.PageObjects.RegisterObject;
-import com.toolshop.fixtures.PlaywrightFactory;
+import com.toolshop.pages.RegisterAPI;
+import com.toolshop.pages.RegisterObject;
+import com.toolshop.utils.PlaywrightFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
 
-import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,10 +1,9 @@
-package com.toolshop.cucumber;
+package com.toolshop.stepdefinitions;
 
 import com.microsoft.playwright.Page;
-import com.toolshop.PageObjects.LoginObject;
-import com.toolshop.PageObjects.RegisterObject;
-import com.toolshop.fixtures.PlaywrightFactory;
-import io.cucumber.java.en.Given;
+import com.toolshop.pages.LoginObject;
+import com.toolshop.pages.RegisterObject;
+import com.toolshop.utils.PlaywrightFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;

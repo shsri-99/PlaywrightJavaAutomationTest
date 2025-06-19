@@ -1,4 +1,4 @@
-package com.toolshop.PageObjects;
+package com.toolshop.pages;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.microsoft.playwright.Locator;

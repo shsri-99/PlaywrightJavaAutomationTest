@@ -1,5 +1,9 @@
+<<<<<<< HEAD:src/test/java/com/toolshop/pages/LoginObject.java
+package com.toolshop.pages;
+=======
 package com.toolshop.PageObjects;
 import com.microsoft.playwright.Locator;
+>>>>>>> 5eaa94a229703441d805fb8ee4f56962d982a646:src/test/java/com/toolshop/PageObjects/LoginObject.java
 import com.microsoft.playwright.Page;
 import io.qameta.allure.Step;
 import static org.junit.jupiter.api.Assertions.assertEquals;

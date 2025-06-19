@@ -1,5 +1,6 @@
 Feature: Exploring Categories
 
+
   Scenario: Search for categories of product
     Given User is on the homepage
     When User clicks on Categories
