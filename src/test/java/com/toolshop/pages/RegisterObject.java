@@ -1,8 +1,7 @@
-package com.toolshop.PageObjects;
+package com.toolshop.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Response;
 import io.qameta.allure.Step;
 
 import java.util.List;

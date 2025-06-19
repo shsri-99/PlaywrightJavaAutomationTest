@@ -1,10 +1,10 @@
 package com.toolshop.fixtures;
 
 import com.microsoft.playwright.Page;
+import com.toolshop.utils.PlaywrightFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
-import org.junit.jupiter.api.AfterEach;
 
 import java.io.ByteArrayInputStream;
 

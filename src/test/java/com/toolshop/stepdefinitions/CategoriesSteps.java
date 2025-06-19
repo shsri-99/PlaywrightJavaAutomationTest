@@ -1,7 +1,7 @@
-package com.toolshop.cucumber;
+package com.toolshop.stepdefinitions;
 import com.microsoft.playwright.Page;
-import com.toolshop.PageObjects.CategoriesObject;
-import com.toolshop.fixtures.PlaywrightFactory;
+import com.toolshop.pages.CategoriesObject;
+import com.toolshop.utils.PlaywrightFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;

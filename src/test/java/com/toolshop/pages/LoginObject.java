@@ -1,4 +1,4 @@
-package com.toolshop.PageObjects;
+package com.toolshop.pages;
 import com.microsoft.playwright.Page;
 import io.qameta.allure.Step;
 import static org.junit.jupiter.api.Assertions.assertEquals;
